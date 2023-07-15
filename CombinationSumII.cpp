@@ -5,7 +5,7 @@ public:
     {
         if (target == 0)
         {
-            ans.push_back(ds);
+            ans.push_back(ds); 
             return;
         }
         for (int i = idx; i < arr.size(); i++)
