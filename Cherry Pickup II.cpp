@@ -29,6 +29,7 @@ public:
             return dp[i][j1][j2];
         }
 
+
         // Calculate the cherries picked up by both robots at this position
         int cherries = 0;
         if (j1 == j2) {
