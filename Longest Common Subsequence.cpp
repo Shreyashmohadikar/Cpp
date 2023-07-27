@@ -8,7 +8,7 @@ public:
             return dp[L1][L2];
         }
         if(str1[L1] == str2[L2]){
-            return 1 + f(L1-1, L2-1, str1, str2, dp);
+            return dp[L1][L2] = 1 + f(L1-1, L2-1, str1, str2, dp);
         }
         return dp[L1][L2] = max(f(L1-1, L2, str1, str2, dp), f(L1, L2-1, str1, str2, dp));
     }
