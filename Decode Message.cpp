@@ -13,7 +13,6 @@ string findUniqueNumberBruteForce(const string& str, const string& pattern) {
                 break;
             }
         }
-
         if (found) {
             uniqueNumber += to_string(i + 1); // Add 1 to convert index to 1-based
         }
