@@ -25,3 +25,27 @@ public:
         return f(0, 1, k, prices, dp);
     }
 };
+
+/////////////////////////////////////////
+//Tabulation
+
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices, int fee) {
+        int n = prices.size();
+        vector<vector<int>> dp(n + 1, vector<int>(2, 0));
+        dp[n][0] = dp[n][1] = 0; // base case
+
+        for (int i = n - 1; i >= 0; i--) {
+            for (int buy = 0; buy <= 1; buy++) {
+                if (buy) {
+                    dp[i][0] = max(-prices[i] + dp[i + 1][1] - fee, 0 + dp[i + 1][0]);
+                } else {
+                    dp[i][1] = max(prices[i] + dp[i + 1][0], 0 + dp[i + 1][1]);
+                }
+            }
+        }
+        return dp[0][0]; // return the maximum profit achieved by selling on the first day
+    }
+};
