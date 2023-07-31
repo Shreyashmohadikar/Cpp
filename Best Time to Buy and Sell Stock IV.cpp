@@ -32,7 +32,7 @@ public:
 
 class Solution {
 public:
-    int maxProfit(vector<int>& prices, int fee) {
+    int maxProfit(vector<int>& prices) {
         int n = prices.size();
         vector<vector<int>> dp(n + 1, vector<int>(2, 0));
         dp[n][0] = dp[n][1] = 0; // base case
@@ -40,7 +40,7 @@ public:
         for (int i = n - 1; i >= 0; i--) {
             for (int buy = 0; buy <= 1; buy++) {
                 if (buy) {
-                    dp[i][0] = max(-prices[i] + dp[i + 1][1] - fee, 0 + dp[i + 1][0]);
+                    dp[i][0] = max(-prices[i] + dp[i + 1][1], 0 + dp[i + 1][0]);
                 } else {
                     dp[i][1] = max(prices[i] + dp[i + 1][0], 0 + dp[i + 1][1]);
                 }
