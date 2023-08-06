@@ -12,7 +12,7 @@ int f(vector<int> &val, vector<int> &weight, int idx, int w,
 	if(dp[idx][w] != -1){
 		return dp[idx][w];
 	}
-	int notTake = f(val, weight, idx - 1, w, dp); 
+	int notTake = f(val, weight, idx - 1, w, dp);
 	int take = INT_MIN;
 	if(w >= weight[idx]){
 		take =  val[idx] + f(val, weight, idx - 1, w-weight[idx], dp);
