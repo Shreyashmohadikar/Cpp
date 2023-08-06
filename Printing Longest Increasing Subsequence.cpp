@@ -26,7 +26,6 @@ void printAns(int i, int prev, vector<int> &nums, vector<int> &ans, vector<vecto
 	}
 }
 vector<int> printingLongestIncreasingSubsequence(vector<int>& nums, int n) {
-	// sort(nums.begin(), nums.end());
 
 	vector<vector<int>> dp(n, vector<int>(n+1, -1));
 	Length(0, -1, nums, dp);
