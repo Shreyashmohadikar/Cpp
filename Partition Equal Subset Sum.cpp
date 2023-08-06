@@ -13,7 +13,7 @@ public:
     bool notTake = f(n-1, target, arr, dp);
     bool take = false;
     if(target >= arr[n]){
-        take = f(n - 1, target - arr[n], arr, dp);
+        take = f(n-1, target - arr[n], arr, dp);
     }
     return dp[n][target] = (take || notTake);
     }
