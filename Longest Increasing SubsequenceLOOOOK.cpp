@@ -8,7 +8,7 @@ public:
             return dp[i][prev+1];
         }
         int notTake = 0 + f(i+1, prev, nums, dp);
-        int take = 0; 
+        int take = 0;
         if(prev == -1 || nums[i] > nums[prev]){
             take = 1 + f(i+1, i, nums, dp);
         }
