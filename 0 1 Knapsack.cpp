@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>
 int f(vector<int> &val, vector<int> &weight, int idx, int w, 
 	vector<vector<int>> &dp){
 	if(idx == 0){
