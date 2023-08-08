@@ -11,7 +11,7 @@ public:
         int take = 0;
         if(prev == -1 || nums[i] % nums[prev] == 0){
             take = 1 + Length(i+1, i, nums, dp);
-        } 
+        }
         return dp[i][prev+1] = max(take, notTake);
     }
     void printAns(int i, int prev, vector<int> &nums, vector<int> &ans, vector<vector<int>> &dp){
