@@ -1,38 +1,48 @@
-class Solution {
+class Solution
+{
 public:
-    //calculating length
-    int Length(int i, int prev, vector<int> &nums, vector<vector<int>> &dp){
-        if(i == nums.size()){
+    // calculating length
+    int Length(int i, int prev, vector<int> &nums, vector<vector<int>> &dp)
+    {
+        if (i == nums.size())
+        {
             return 0;
         }
-        if(dp[i][prev+1] != -1){
-            return dp[i][prev+1];
+        if (dp[i][prev + 1] != -1)
+        {
+            return dp[i][prev + 1];
         }
-        int notTake = 0 + Length(i+1, prev, nums, dp);
+        int notTake = 0 + Length(i + 1, prev, nums, dp);
         int take = 0;
-        if(prev == -1 || nums[i] % nums[prev] == 0){
-            take = 1 + Length(i+1, i, nums, dp);
+        if (prev == -1 || nums[i] % nums[prev] == 0)
+        {
+            take = 1 + Length(i + 1, i, nums, dp);
         }
-        return dp[i][prev+1] = max(take, notTake);
+        return dp[i][prev + 1] = max(take, notTake);
     }
-    //printing
-    void printAns(int i, int prev, vector<int> &nums, vector<int> &ans, vector<vector<int>> &dp){
-        if(i == nums.size()){
-            return ;
+    // printing
+    void printAns(int i, int prev, vector<int> &nums, vector<int> &ans, vector<vector<int>> &dp)
+    {
+        if (i == nums.size())
+        {
+            return;
         }
-        if(Length(i, prev, nums, dp) == Length(i+1, prev, nums, dp)){
-            printAns(i+1, prev, nums, ans, dp);
+        if (Length(i, prev, nums, dp) == Length(i + 1, prev, nums, dp))
+        {
+            printAns(i + 1, prev, nums, ans, dp);
         }
-        else{
+        else
+        {
             ans.push_back(nums[i]);
-            printAns(i+1, i, nums, ans, dp);
+            printAns(i + 1, i, nums, ans, dp);
         }
     }
-    vector<int> largestDivisibleSubset(vector<int>& nums) {
+    vector<int> largestDivisibleSubset(vector<int> &nums)
+    {
         int n = nums.size();
         sort(nums.begin(), nums.end());
 
-        vector<vector<int>> dp(n, vector<int>(n+1, -1));
+        vector<vector<int>> dp(n, vector<int>(n + 1, -1));
         Length(0, -1, nums, dp);
 
         vector<int> ans;
