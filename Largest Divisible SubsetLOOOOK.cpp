@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //calculating length
     int Length(int i, int prev, vector<int> &nums, vector<vector<int>> &dp){
         if(i == nums.size()){
             return 0;
@@ -14,6 +15,7 @@ public:
         }
         return dp[i][prev+1] = max(take, notTake);
     }
+    //printing
     void printAns(int i, int prev, vector<int> &nums, vector<int> &ans, vector<vector<int>> &dp){
         if(i == nums.size()){
             return ;
