@@ -1,40 +1,37 @@
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
-int longestBitonicSubsequence(vector<int>& arr) {
-    int n = arr.size();
-    vector<int> lis(n, 1); // Longest Increasing Subsequence ending at index i
-    vector<int> lds(n, 1); // Longest Decreasing Subsequence starting from index i
-
-    for (int i = 1; i < n; ++i) {
-        for (int j = 0; j < i; ++j) {
-            if (arr[i] > arr[j]) {
-                lis[i] = max(lis[i], lis[j] + 1);
-            }
-        }
+int f(int i, int prev, vector<int> &nums, vector<vector<int>> &dp){
+    if(i == nums.size()){
+        return 0;
     }
-
-    for (int i = n - 2; i >= 0; --i) {
-        for (int j = n - 1; j > i; --j) {
-            if (arr[i] > arr[j]) {
-                lds[i] = max(lds[i], lds[j] + 1);
-            }
-        }
+    if(dp[i][prev+1] != -1){
+        return dp[i][prev+1];
     }
-
-    int maxBitonicLength = 0;
-    for (int i = 0; i < n; ++i) {
-        maxBitonicLength = max(maxBitonicLength, lis[i] + lds[i] - 1);
+    int notTake = 0 + f(i+1, prev, nums, dp);
+    int take = 0;
+    if(prev == -1 || nums[i] < nums[prev]){
+        take = 1 + f(i+1, i, nums, dp);
     }
-
-    return maxBitonicLength;
+    return dp[i][prev+1] = max(take, notTake);
 }
 
-int main() {
-    vector<int> arr = {1, 3, 5, 3, 21, 1, 2, 3, 4};
-    int result = longestBitonicSubsequence(arr);
-    cout << "Length of the longest bitonic subsequence: " << result << endl;
+int lengthOfLIS(vector<int>& nums) {
+    int n = nums.size();
+    vector<vector<int>> dp(n, vector<int>(n+1, -1));
+    return f(0, -1, nums, dp);
+}
 
+int main(){
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int i = 0; i < n; i++){
+        cin >> arr[i];
+    }
+    int lisLength = lengthOfLIS(arr);
+    cout << lisLength << endl;
     return 0;
 }
