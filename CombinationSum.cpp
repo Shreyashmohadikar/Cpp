@@ -28,5 +28,4 @@ public:
         return ans;
     }
 };
-
 // take or not take
