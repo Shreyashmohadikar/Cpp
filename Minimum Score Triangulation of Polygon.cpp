@@ -1,4 +1,5 @@
-class Solution {
+class Solution
+{
 public:
     int f(int i, int j, vector<int> &arr, vector<vector<int>> &dp)
     {
