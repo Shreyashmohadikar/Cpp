@@ -15,7 +15,9 @@ public:
         int maxi = INT_MIN;
         for (int k = i; k <= j; k++)
         {
-            int cost = arr[i - 1] * arr[k] * arr[j + 1] + f(i, k - 1, arr, dp) + f(k + 1, j, arr, dp);
+            int cost = arr[i - 1] * arr[k] * arr[j + 1]
+                        + f(i, k - 1, arr, dp)
+                        + f(k + 1, j, arr, dp);
             maxi = max(maxi, cost);
         }
 
