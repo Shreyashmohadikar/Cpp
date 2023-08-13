@@ -1,16 +1,23 @@
-class Solution {
+class Solution
+{
 public:
-    bool parseBoolExpr(string s) {
+    bool parseBoolExpr(string s)
+    {
         stack<char> stk;
-        for(int i=0; i<s.size(); i++){
-            if(s[i] == ')'){
-                
-                int t=0, f=0;
-                while(stk.top() == 't' || stk.top() == 'f'){
-                    if(stk.top() == 't'){
+        for (int i = 0; i < s.size(); i++)
+        {
+            if (s[i] == ')')
+            {
+
+                int t = 0, f = 0;
+                while (stk.top() == 't' || stk.top() == 'f')
+                {
+                    if (stk.top() == 't')
+                    {
                         t = 1;
                     }
-                    if(stk.top() == 'f'){
+                    if (stk.top() == 'f')
+                    {
                         f = 1;
                     }
                     stk.pop();
@@ -18,41 +25,51 @@ public:
                 char temp = stk.top();
                 stk.pop();
 
-                if(temp == '&'){
-                    if(f){
+                if (temp == '&')
+                {
+                    if (f)
+                    {
                         stk.push('f');
                     }
-                    else{
+                    else
+                    {
                         stk.push('t');
                     }
                 }
 
-                else if(temp == '|'){
-                    if(t){
+                else if (temp == '|')
+                {
+                    if (t)
+                    {
                         stk.push('t');
                     }
-                    else{
+                    else
+                    {
                         stk.push('f');
                     }
                 }
 
-                else if(temp == '!'){
-                    if(t){
+                else if (temp == '!')
+                {
+                    if (t)
+                    {
                         stk.push('f');
                     }
-                    else{
+                    else
+                    {
                         stk.push('t');
                     }
                 }
-
             }
 
-            else if(s[i] != '(' && s[i] != ','){
+            else if (s[i] != '(' && s[i] != ',')
+            {
                 stk.push(s[i]);
             }
         }
 
-        if(stk.top() == 't'){
+        if (stk.top() == 't')
+        {
             return true;
         }
         return false;
