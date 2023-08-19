@@ -43,23 +43,25 @@ public:
     }
 };
 
+//////////////////////////////////////////////////////////
 
-// class Solution {
-// public:
-//     int largestRectangleArea(vector<int>& arr) {
-//         int maxArea = 0;
-//         int n = arr.size();
+// Brute Force Approach
+class Solution {
+public:
+    int largestRectangleArea(vector<int>& arr) {
+        int maxArea = 0;
+        int n = arr.size();
 
-//         for (int i = 0; i < n; i++) {
-//             int minHeight = arr[i];
-//             for (int j = i; j < n; j++) {
-//                 minHeight = min(minHeight, arr[j]);
-//                 int width = j - i + 1;
-//                 int area = minHeight * width;
-//                 maxArea = max(maxArea, area);
-//             }
-//         }
+        for (int i = 0; i < n; i++) {
+            int minHeight = arr[i];
+            for (int j = i; j < n; j++) {
+                minHeight = min(minHeight, arr[j]);
+                int width = j - i + 1;
+                int area = minHeight * width;
+                maxArea = max(maxArea, area);
+            }
+        }
 
-//         return maxArea;
-//     }
-// };
+        return maxArea;
+    }
+};
