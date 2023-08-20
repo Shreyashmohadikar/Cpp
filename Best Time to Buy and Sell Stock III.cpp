@@ -19,8 +19,8 @@ public:
         return dp[i][buy][cap] = profit;
     }
     int maxProfit(vector<int>& prices) {
-        vector<vector<vector<int>>> dp(prices.size(), 
-                                        vector<vector<int>> (2, 
+        vector<vector<vector<int>>> dp(prices.size(),
+                                        vector<vector<int>> (2,
                                             vector<int> (3, -1))); //3D DP
         return f(0, 1, 2, prices, dp);
     }
