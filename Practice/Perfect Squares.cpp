@@ -18,3 +18,22 @@ public:
         return f(n, dp);
     }
 };
+
+////////////////////////Tabulation
+
+class Solution {
+public:
+    int numSquares(int n) {
+        if(n<=3){
+            return n;
+        }
+        vector<int> dp(n+1, n);
+        dp[0] = 0;
+        for(int i=1; i<=n; i++){
+            for(int x=1; x*x<=i; x++){
+                dp[i] = min(dp[i], 1 + dp[i-x*x]);
+            }
+        }
+        return dp[n];
+    }
+};
