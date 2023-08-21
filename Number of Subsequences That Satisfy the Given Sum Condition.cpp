@@ -31,4 +31,4 @@ public:
 };
 
 
-// Number of Subsequences That Satisfy the Given Sum Conditi
+// Number of Subsequences That Satisfy the Given Sum Condition
