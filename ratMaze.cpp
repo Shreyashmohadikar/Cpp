@@ -28,7 +28,7 @@ public:
         vector<string> ans;
         vector<vector<int>> vis(n, vector<int>(n, 0));
         int di[] = { +1, 0, 0, -1 };
-        int dj[] = { 0, -1, 1, 0 };
+        int dj[] = { 0, -1, +1, 0 };
         if (m[0][0] == 1) {
             if (solve(0, 0, m, n, ans, vis, "", di, dj))
                 return ans;
