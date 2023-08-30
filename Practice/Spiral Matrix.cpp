@@ -38,7 +38,7 @@ public:
                 }
                 colStart++;
             }
-        } 
+        }
         return ans;
     }
 };
