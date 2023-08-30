@@ -15,7 +15,7 @@ public:
         for(int i=idx; i<nums.size(); i++){
             swap(nums, i, idx);
             f(idx+1, nums, ans);
-            swap(nums, i, idx);
+            swap(nums, i, idx); //Backtrack
         }
     }
     vector<vector<int>> permute(vector<int>& nums) {
