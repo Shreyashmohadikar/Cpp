@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-    vector<vector<int>> arr = {{0,1}, {1,2}, {3,4}, {2,4}, {2,6}, {5,2}};
+    vector<vector<int>> arr = {{0,1}, {1,2}, {3,4}, {2,4}, {2,6}, {5,4}};
     int N = 7;
     int M = 6;
     int K = 5;
@@ -21,6 +21,6 @@ int main(){
     }
 
     int ans = count * K;
-    cout<<"Cost: "<<ans;
+    cout<<endl<<"Cost: "<<ans<<endl;
     return 0;
 }
