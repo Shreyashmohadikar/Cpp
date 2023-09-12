@@ -13,6 +13,7 @@ public:
         for(auto it : mp){
             pq.push(it.second);
         }
+
         while(!pq.empty()){
             int currFreq = pq.top();
             pq.pop();
