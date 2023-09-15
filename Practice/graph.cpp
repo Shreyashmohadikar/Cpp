@@ -21,3 +21,5 @@ int main(){
     cout<<"Cost: "<<ans;
     return 0;
 }
+
+
