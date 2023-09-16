@@ -1,11 +1,14 @@
 class Solution {
 public:
     int minimumEffortPath(vector<vector<int>>& heights) {
+
         priority_queue<pair<int, pair<int, int>>,
                         vector<pair<int, pair<int, int>>>,
                         greater<pair<int, pair<int, int>>>> pq;
+
         int m = heights.size();
         int n = heights[0].size();
+
         vector<vector<int>> dist(m, vector<int>(n, 1e9));
         dist[0][0] = 0;
         pq.push({0, {0,0}});
@@ -16,6 +19,7 @@ public:
         while(!pq.empty()){
             auto it = pq.top();
             pq.pop();
+
             int diff = it.first;
             int row = it.second.first;
             int col = it.second.second;
