@@ -5,6 +5,7 @@ public:
         nums[i] = nums[idx];
         nums[idx] = temp;
     }
+
     void f(int idx, vector<int> &nums,
             vector<vector<int>> &ans){
 
@@ -18,6 +19,7 @@ public:
             swap(nums, i, idx); //Backtrack
         }
     }
+
     vector<vector<int>> permute(vector<int>& nums) {
         vector<vector<int>> ans;
         if(nums.size()){
