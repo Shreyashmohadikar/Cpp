@@ -7,14 +7,17 @@ public:
             totalSum += num;
 
         int maxLength = -1, currSum = 0;
-        for (int l = 0, r = 0; r < nums.size(); r++) {
-            currSum += nums[r];
+        for (int left = 0, right = 0; right < nums.size(); right++) {
+            currSum += nums[right];
 
-            while (l <= r && currSum > totalSum - x)
-                currSum -= nums[l++];
+            while (left <= right && currSum > totalSum - x){
+                currSum -= nums[left];
+                left++;
+            }
 
-            if (currSum == totalSum - x)
-                maxLength = max(maxLength, r - l + 1);
+            if (currSum == totalSum - x){
+                maxLength = max(maxLength, right - left + 1);
+            }
         }
 
         if(maxLength == -1){
