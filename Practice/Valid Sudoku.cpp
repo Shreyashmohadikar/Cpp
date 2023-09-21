@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
-        int row[9][9] = {0}; 
+        int row[9][9] = {0};
         int col[9][9] = {0};
         int box[9][9] = {0};
         for(int i=0; i<9; i++){
