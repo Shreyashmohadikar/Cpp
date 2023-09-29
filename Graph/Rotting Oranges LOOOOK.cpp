@@ -39,7 +39,7 @@ public:
                 int newRow = r + drow[i];
                 int newCol = c + dcol[i];
 
-                if(newRow < m && newCol < n && newRow >= 0 && newCol >= 0 
+                if(newRow < m && newCol < n && newRow >= 0 && newCol >= 0
                     && grid[newRow][newCol] == 1 && vis[newRow][newCol] == 0)
                     {
                         q.push({{newRow, newCol}, t+1});
