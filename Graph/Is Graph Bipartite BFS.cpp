@@ -26,7 +26,7 @@ public:
     int color[n];
     for(int i=0; i<n; i++){
       color[i] = -1;
-    }    
+    }
     for(int i=0; i<n; i++){
         if(color[i] == -1){
             if(checkBFS(i, color, graph) == false){
@@ -34,6 +34,6 @@ public:
             }
         }
     }
-    return true; 
+    return true;
   }
 };
