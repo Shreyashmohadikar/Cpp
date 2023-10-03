@@ -1,4 +1,5 @@
-//{ Driver Code Starts
+// only to be used in directed acyclic graph
+
 #include <bits/stdc++.h>
 using namespace std;
 
