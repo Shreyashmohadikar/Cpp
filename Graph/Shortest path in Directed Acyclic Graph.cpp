@@ -6,61 +6,75 @@ using namespace std;
 
 // } Driver Code Ends
 // User function Template for C++
-class Solution {
-  private:
-    void topoSort(int node, vector<pair<int, int>> adj[], 
-                int vis[], stack<int> &stk){
+class Solution
+{
+private:
+    void topoSort(int node, vector<pair<int, int>> adj[],
+                  int vis[], stack<int> &stk)
+    {
         vis[node] = 1;
-        
-        for(auto it : adj[node]){
+
+        for (auto it : adj[node])
+        {
             int v = it.first;
-            if(!vis[v]){
+            if (!vis[v])
+            {
                 topoSort(v, adj, vis, stk);
             }
         }
-        
+
         stk.push(node);
     }
-  public:
-     vector<int> shortestPath(int N,int M, vector<vector<int>>& edges){
+
+public:
+    vector<int> shortestPath(int N, int M, vector<vector<int>> &edges)
+    {
         vector<pair<int, int>> adj[N];
-        for(int i=0; i<M; i++){
+        for (int i = 0; i < M; i++)
+        {
             int u = edges[i][0];
             int v = edges[i][1];
             int wt = edges[i][2];
             adj[u].push_back({v, wt});
         }
-        //step - 1
+        // step - 1
         int vis[N] = {0};
         stack<int> stk;
-        for(int i=0; i<N; i++){
-            if(!vis[i]){
+        for (int i = 0; i < N; i++)
+        {
+            if (!vis[i])
+            {
                 topoSort(i, adj, vis, stk);
             }
         }
-        
-        //step - 2
+
+        // step - 2
         vector<int> dist(N, 1e9);
-        
+
         int src = 0;
         dist[src] = 0;
-        
-        while(!stk.empty()){
+
+        while (!stk.empty())
+        {
             int node = stk.top();
             stk.pop();
-            
-            for(auto it : adj[node]){
+
+            for (auto it : adj[node])
+            {
                 int v = it.first;
                 int wt = it.second;
-                
-                if(dist[node] + wt < dist[v]){
+
+                if (dist[node] + wt < dist[v])
+                {
                     dist[v] = dist[node] + wt;
                 }
             }
         }
-        
-        for (int i = 0; i < N; i++) {
-            if (dist[i] == 1e9) {
+
+        for (int i = 0; i < N; i++)
+        {
+            if (dist[i] == 1e9)
+            {
                 dist[i] = -1;
             }
         }
@@ -68,26 +82,31 @@ class Solution {
     }
 };
 
-
 //{ Driver Code Starts.
-int main() {
+int main()
+{
     int t;
     cin >> t;
-    while (t--) {
+    while (t--)
+    {
         int n, m;
         cin >> n >> m;
         vector<vector<int>> edges;
-        for(int i=0; i<m; ++i){
+        for (int i = 0; i < m; ++i)
+        {
             vector<int> temp;
-            for(int j=0; j<3; ++j){
-                int x; cin>>x;
+            for (int j = 0; j < 3; ++j)
+            {
+                int x;
+                cin >> x;
                 temp.push_back(x);
             }
             edges.push_back(temp);
         }
         Solution obj;
         vector<int> res = obj.shortestPath(n, m, edges);
-        for (auto x : res) {
+        for (auto x : res)
+        {
             cout << x << " ";
         }
         cout << "\n";
