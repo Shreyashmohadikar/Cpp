@@ -22,7 +22,7 @@ public:
     {
         int n1 = nums1.size();
         int n2 = nums2.size();
-        vector<vector<int>> dp(n1, vector<int>(n2, -1));
+        vector<vector<int>> dp(n1 + 1, vector<int>(n2 + 1, -1));
         int ans = f(n1 - 1, n2 - 1, nums1, nums2, dp);
         if (ans)
             return ans;
