@@ -2,17 +2,16 @@
 using namespace std;
 
 int solve(int x, int y, int z){
-    int ans = x;
-    while(z--){
-        if(x > y){
-            x--;
-        }
-        else{
-            x++;
-        }
-        ans = max(ans, x);
+    if(x > y){
+        return x;
     }
-    return ans;
+    else if(x == y){
+        return x + (z/2);
+    }
+    else{
+        z = z - (y-x);
+        return y + (z/2);
+    }
 }
 int main(){
     int x, y, z;
