@@ -6,14 +6,8 @@ int getAlphabetValue(char c) {
     if (c == 'A') return 0;
     if (c == 'B') return 1;
 
-    // Calculate values for letters C and above
-    int a = 0, b = 1, result = 0;
-    for (char i = 'C'; i <= c; i++) {
-        result = a + b;
-        a = b;
-        b = result;
-    }
-    return result;
+    // Calculate values for letters C and above using recursion
+    return getAlphabetValue(c - 2) + getAlphabetValue(c - 1);
 }
 
 int calculateWordSum(const string& word) {
