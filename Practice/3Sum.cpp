@@ -17,7 +17,7 @@ public:
             while (j < k)
             {
                 int sum = nums[i] + nums[j] + nums[k];
-                if (sum == 0)
+                if (sum == 0)//==target
                 {
                     vec.push_back({nums[i], nums[j], nums[k]});
 
@@ -33,7 +33,7 @@ public:
                     j++;
                     k--;
                 }
-                else if (sum < 0)
+                else if (sum < 0)//<target
                 {
                     j++;
                 }
