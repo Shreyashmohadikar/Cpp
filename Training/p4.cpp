@@ -27,35 +27,6 @@ int solve(int n, int x, vector<int> &dp){
     if(dp[n] != -1){
         return dp[n];
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     int ans = 0;
     for(int i=1; i<=x; i++){
         ans += solve(n-i, x, dp);
